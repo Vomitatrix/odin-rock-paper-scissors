@@ -35,7 +35,7 @@ function opponentTurn() {
     opponentChoice = Math.floor(Math.random() * 3);
     displayRound();
     compareChoices();
-    checkRound();
+    checkScore();
 }
 
 // After each round the value 'round' increases by 1
@@ -89,7 +89,7 @@ function compareChoices() {
 
 // Once the player or the opponent reaches 5 points, buttons are disabled, a new button is created
 // to reset the game, and an end screen message displays whether the player won or lost
-function checkRound() {
+function checkScore() {
     if (playerScore == 5 || opponentScore == 5) {
         rckBtn.disabled = true;
         pprBtn.disabled = true;
