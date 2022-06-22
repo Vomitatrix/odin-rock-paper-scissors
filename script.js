@@ -8,8 +8,8 @@ let playerScore = 0;
 let opponentScore = 0;
 let currentRound = 0;
 
-//Simple message to be displayed at the beginning of the game
-console.log('May the best out of 5 win!');
+// Simple message to be displayed at the beginning of the game
+console.log('Reach 5 points first to win!');
 
 // Depending on which button is pressed, playerChoice will be assigned a value between 0 and 2
 // corresponding to rock, paper, or scissors
