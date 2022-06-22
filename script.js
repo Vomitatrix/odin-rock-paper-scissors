@@ -7,9 +7,10 @@ let opponentChoice;
 let playerScore = 0;
 let opponentScore = 0;
 let currentRound = 0;
+let choices = ['Rock', 'Paper', 'Scissors'];
 
-//Simple message to be displayed at the beginning of the game
-console.log('May the best out of 5 win!');
+// Simple message to be displayed at the beginning of the game
+console.log('Reach 5 points first to win!');
 
 // Depending on which button is pressed, playerChoice will be assigned a value between 0 and 2
 // corresponding to rock, paper, or scissors
@@ -47,47 +48,43 @@ function displayRound() {
 // If they are not, they are compared until the outcome is found
 // Then the winner gets a point, and all is printed out in the console
 function compareChoices() {
+    console.log(`You chose: ${choices[playerChoice]} | Opponent chose: ${choices[opponentChoice]}`);
+    
     if (opponentChoice == playerChoice) {
         console.log('TIE!');
         console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
-        console.log(' ');
     } else if (opponentChoice == 0) {
         if (playerChoice == 1) {
             playerScore += 1;
             console.log('You win this round!');
             console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
-            console.log(' ');
         } else {
             opponentScore += 1;
             console.log('You lose this round!');
             console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
-            console.log(' ');
         }
     } else if (opponentChoice == 1) {
         if (playerChoice == 0) {
             opponentScore += 1;
             console.log('You lose this round!');
             console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
-            console.log(' ');
         } else {
             playerScore += 1;
             console.log('You win this round!');
             console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
-            console.log(' ');
         }
     } else {
         if (playerChoice == 0) {
             playerScore += 1;
             console.log('You win this round!');
             console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
-            console.log(' ');
         } else {
             opponentScore += 1;
             console.log('You lose this round!');
             console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
-            console.log(' ');
         }
     }
+    console.log('');
 }
 
 // Once the player or the opponent reaches 5 points, buttons are disabled, a new button is created
