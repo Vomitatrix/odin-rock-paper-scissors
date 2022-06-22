@@ -49,58 +49,51 @@ function displayRound() {
 function compareChoices() {
     if (opponentChoice == playerChoice) {
         console.log('TIE!');
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Opponent's score: ${opponentScore}`);
+        console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
         console.log(' ');
     } else if (opponentChoice == 0) {
         if (playerChoice == 1) {
             playerScore += 1;
             console.log('You win this round!');
-            console.log(`Your score: ${playerScore}`);
-            console.log(`Opponent's score: ${opponentScore}`);
+            console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
             console.log(' ');
         } else {
             opponentScore += 1;
             console.log('You lose this round!');
-            console.log(`Your score: ${playerScore}`);
-            console.log(`Opponent's score: ${opponentScore}`);
+            console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
             console.log(' ');
         }
     } else if (opponentChoice == 1) {
         if (playerChoice == 0) {
             opponentScore += 1;
             console.log('You lose this round!');
-            console.log(`Your score: ${playerScore}`);
-            console.log(`Opponent's score: ${opponentScore}`);
+            console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
             console.log(' ');
         } else {
             playerScore += 1;
             console.log('You win this round!');
-            console.log(`Your score: ${playerScore}`);
-            console.log(`Opponent's score: ${opponentScore}`);
+            console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
             console.log(' ');
         }
     } else {
         if (playerChoice == 0) {
             playerScore += 1;
             console.log('You win this round!');
-            console.log(`Your score: ${playerScore}`);
-            console.log(`Opponent's score: ${opponentScore}`);
+            console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
             console.log(' ');
         } else {
             opponentScore += 1;
             console.log('You lose this round!');
-            console.log(`Your score: ${playerScore}`);
-            console.log(`Opponent's score: ${opponentScore}`);
+            console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
             console.log(' ');
         }
     }
 }
 
-// Once the number of rounds reaches 5, a victor is chosen, buttons are disabled, a new button is
-// created to reset the game, and an end screen message displayes whether the player won or lost
+// Once the player or the opponent reaches 5 points, buttons are disabled, a new button is created
+// to reset the game, and an end screen message displays whether the player won or lost
 function checkRound() {
-    if (!(currentRound < 5)) {
+    if (playerScore == 5 || opponentScore == 5) {
         rckBtn.disabled = true;
         pprBtn.disabled = true;
         scrBtn.disabled = true;
@@ -113,7 +106,7 @@ function checkRound() {
 }
 
 // When the newly created reset button is pressed, scores and round are reset, buttons reactivated,
-// reset button removed, and a new game message is displayed
+// reset button removed, the console is cleared, and a new game message is displayed
 function resetGame() {
     playerScore = 0;
     opponentScore = 0;
@@ -122,16 +115,15 @@ function resetGame() {
     pprBtn.disabled = false;
     scrBtn.disabled = false;
     resetBtn.parentNode.removeChild(resetBtn);
-    console.log('May the best out of 5 win!');
+    console.clear();
+    console.log('Reach 5 points first to win!');
 }
 
-// Displays a message depending on whether the palyer won, lost, or tied the opponent
+// Displays a message depending on whether the player won or lost
 function endScreen() {
     if (playerScore > opponentScore) {
-        console.log('You won the game!');
-    } else if (playerScore < opponentScore) {
-        console.log('You lost the game.');
+        console.log(`You won the game and it only took you ${currentRound} rounds!`);
     } else {
-        console.log(`It's a tie!`);
+        console.log(`You lost the game, and it only took you ${currentRound} rounds.`);
     }
 }
