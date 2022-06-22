@@ -6,6 +6,9 @@ let opponentChoice;
 let playerScore = 0;
 let opponentScore = 0;
 
+// Depending on which button is pressed, playerChoice will be assigned a value between 0 and 2
+// corresponding to rock, paper, or scissors
+
 rckBtn.addEventListener('click', () => {
     playerChoice = 0;
     opponentTurn();
@@ -20,6 +23,13 @@ scrBtn.addEventListener('click', () => {
     playerChoice = 2;
     opponentTurn();
 });
+
+// A random number between 0 and 2 is generated for the opponent,
+// each corresponding to either rock, paper, or scissors, just
+// like the player's
+// Then it's compared with playerChoice, if they are the equal, it's a tie
+// If they are not, they are compared until the outcome is found
+// Then the winner gets a point, and all is printed out in the console
 
 function opponentTurn() {
     opponentChoice = Math.floor(Math.random() * 3);
