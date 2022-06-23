@@ -52,30 +52,14 @@ function compareChoices() {
     
     if (opponentChoice == playerChoice) {
         console.log('TIE!');
-    } else if (opponentChoice == 0) {
-        if (playerChoice == 1) {
-            playerScore += 1;
-            console.log('You win this round!');
-        } else {
-            opponentScore += 1;
-            console.log('You lose this round!');
-        }
-    } else if (opponentChoice == 1) {
-        if (playerChoice == 0) {
-            opponentScore += 1;
-            console.log('You lose this round!');
-        } else {
-            playerScore += 1;
-            console.log('You win this round!');
-        }
+    } else if ((opponentChoice == 0 && playerChoice == 1) || 
+               (opponentChoice == 1 && playerChoice == 2) || 
+               (opponentChoice == 2 && playerChoice == 0)) {
+        playerScore += 1;
+        console.log('You win this round!');
     } else {
-        if (playerChoice == 0) {
-            playerScore += 1;
-            console.log('You win this round!');
-        } else {
-            opponentScore += 1;
-            console.log('You lose this round!');
-        }
+        opponentScore += 1;
+        console.log('You lose this round!');
     }
     console.log(`Your score: ${playerScore} | Opponent's score: ${opponentScore}`);
     console.log('');
